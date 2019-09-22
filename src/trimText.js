@@ -83,10 +83,19 @@ export default function trimText(text, options) {
       break;
     case 'words':
       let wordsArr = text.split(' ');
-      wordsArr.length = opts.limit;
+      let wordsCount = wordsArr.length;
+      if(wordsCount > opts.limit) {
+        wordsArr.length = opts.limit;
+      }
       baseText = wordsArr.join(' ');
       break;
     case 'sentences':
+      let sentencesArr = text.split('.');
+      let sentencesCount = sentencesArr.length;
+      if(sentencesCount > opts.limit) {
+        sentencesArr.length = opts.limit;
+      }
+      baseText = sentencesArr.join('.');
       break;
     default:
       errs.push({msg: 'Unknown mode.'});
