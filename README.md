@@ -4,9 +4,6 @@ A customizable module for trimming text using characters/words/sentences limits 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-
 ### Installing
 
 ```
@@ -47,7 +44,7 @@ trailing characters
 ```
 const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque suscipit nec ipsum in dictum."
 
-const trimmedText = trimText(text, {mode: 'words', limit: 3, suffix: '(..)'}); // 'Lorem ipsum dolor'
+const trimmedText = trimText(text, {mode: 'words', limit: 3, suffix: '(..)'}); // 'Lorem ipsum dolor(...)'
 ```
 
 
