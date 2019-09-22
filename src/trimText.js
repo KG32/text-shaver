@@ -60,7 +60,6 @@ export default function trimText(text, options) {
   }
 
   let baseText = '';
-  let trim = false;
   const textLength = text.length;
 
   switch(opts.mode) {
