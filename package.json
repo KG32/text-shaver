@@ -1,6 +1,6 @@
 {
   "name": "trim-text",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Text trimmer",
   "main": "lib/index.js",
   "scripts": {
