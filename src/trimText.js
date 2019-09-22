@@ -61,16 +61,19 @@ export default function trimText(text, options) {
   }
 
   let baseText = '';
-  console.log(opts);
+  let trim = false;
+  const textLength = text.length;
+
   switch(opts.mode) {
     case 'chars':
       if(!opts.preserveWords) {
         baseText = text.substring(0, opts.limit);
       } else {
         let cText = text.substring(0, opts.limit);
-        let sIndex = cText.length;
+        let sIndex = textLength;
         while(sIndex>=0) {
-          if(cText.charAt(sIndex) === ' ') {
+          const cChar = cText.charAt(sIndex-1);
+          if(cChar === ' ' || cChar === '.') {
             baseText = cText.substring(0, sIndex);
             break;
           }
@@ -79,6 +82,9 @@ export default function trimText(text, options) {
       }
       break;
     case 'words':
+      let wordsArr = text.split(' ');
+      wordsArr.length = opts.limit;
+      baseText = wordsArr.join(' ');
       break;
     case 'sentences':
       break;
@@ -86,5 +92,9 @@ export default function trimText(text, options) {
       errs.push({msg: 'Unknown mode.'});
   }
 
-  return `${baseText}${opts.suffix}`;
+  for(let i=0; i<errs.length; i++) {
+    console.warn(errs[i]);
+  }
+
+  return baseText.length < textLength ?`${baseText}${opts.suffix}` : baseText;
 }
