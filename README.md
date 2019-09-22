@@ -27,8 +27,11 @@ import { trimText } from 'trim-text';
 trimText(text, options);
 ```
 
+**text**
+String
+
 **options:**
-* mode (String) 
+* mode (String)  
 chars (default), words, sentences
 * preserveWords (Bool)
 in chars mode, prevent words from splitting
