@@ -27,17 +27,17 @@ import { trimText } from 'trim-text';
 trimText(text, options);
 ```
 
-**text**
+**text**  
 String
 
 **options:**
 * mode (String)  
 chars (default), words, sentences
-* preserveWords (Bool)
+* preserveWords (Bool)  
 in chars mode, prevent words from splitting
-* limit (Number)
+* limit (Number)  
 chars, words or sentences limit
-* suffix (String)
+* suffix (String)  
 trailing characters
 
 
