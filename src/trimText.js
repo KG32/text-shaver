@@ -1,3 +1,5 @@
+"use strict";
+
 const modes = ['chars', 'words', 'sentences'];
 const defaultOptions = {
   mode: modes[0],
@@ -52,7 +54,6 @@ export default function trimText(text, options) {
   } else {
     opts = defaultOptions;
   }
-  const optsKeys = Object.keys(opts);
   for(let key in defaultOptions) {
     if(!opts.hasOwnProperty(key)) {
       opts[key] = defaultOptions[key];
