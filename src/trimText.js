@@ -40,7 +40,12 @@ export default function trimText(text, options) {
           }
           break;
         case 'suffix':
-
+          if(typeof val === 'string') {
+            opts['suffix'] = val;
+          } else {
+            errs.push('Unknown suffix type');
+          }
+          break;
         default:
           errs.push({msg: 'Unknown option key'});
       }
@@ -48,7 +53,38 @@ export default function trimText(text, options) {
   } else {
     opts = defaultOptions;
   }
+  const optsKeys = Object.keys(opts);
+  for(let key in defaultOptions) {
+    if(!opts.hasOwnProperty(key)) {
+      opts[key] = defaultOptions[key];
+    }
+  }
 
   let baseText = '';
+  console.log(opts);
+  switch(opts.mode) {
+    case 'chars':
+      if(!opts.preserveWords) {
+        baseText = text.substring(0, opts.limit);
+      } else {
+        let cText = text.substring(0, opts.limit);
+        let sIndex = cText.length;
+        while(sIndex>=0) {
+          if(cText.charAt(sIndex) === ' ') {
+            baseText = cText.substring(0, sIndex);
+            break;
+          }
+          sIndex--;
+        }
+      }
+      break;
+    case 'words':
+      break;
+    case 'sentences':
+      break;
+    default:
+      errs.push({msg: 'Unknown mode.'});
+  }
 
+  return `${baseText}${opts.suffix}`;
 }
