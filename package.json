@@ -1,21 +1,19 @@
 {
   "name": "trim-text",
   "version": "1.0.0",
-  "description": "Text trimmer",
+  "description": "A customizable module for trimming text using characters/words/sentences limits and adding trailing characters.",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel ./src -d ./lib",
-    "watch": "watch 'npm run build' src"
+    "watch": "watch 'npm run build' src",
+    "prepublish": "npm run build"
   },
   "author": "KG32",
   "license": "mit",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "nodemon": "^1.19.2"
-  },
-  "dependencies": {
     "watch": "^1.0.2"
   },
   "repository": {
