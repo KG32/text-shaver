@@ -13,6 +13,40 @@ These instructions will get you a copy of the project up and running on your loc
 npm install --save trim-text
 ```
 
+### Usage
+
+```
+const trimText = require('trim-text');
+
+// or
+
+import { trimText } from 'trim-text';
+```
+
+```
+trimText(text, options);
+```
+
+**options:**
+* mode (String) 
+chars (default), words, sentences
+* preserveWords (Bool)
+in chars mode, prevent words from splitting
+* limit (Number)
+chars, words or sentences limit
+* suffix (String)
+trailing characters
+
+
+
+### Examples
+
+```
+const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque suscipit nec ipsum in dictum."
+
+const trimmedText = trimText(text, {mode: 'words', limit: 3, suffix: '(..)'}); // 'Lorem ipsum dolor'
+```
+
 
 
 ## Authors
@@ -21,4 +55,4 @@ npm install --save trim-text
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License.
