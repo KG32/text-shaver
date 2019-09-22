@@ -1,4 +1,4 @@
-# text-trim
+# trim-text
 
 A customizable module for trimming text using characters/words/sentences limits and adding trailing characters.
 
