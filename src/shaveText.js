@@ -1,6 +1,6 @@
 "use strict";
 
-const modes = ['chars', 'words', 'sentences'];
+const modes = ['characters', 'words', 'sentences'];
 const defaultOptions = {
   mode: modes[0],
   preserveWords: false,
@@ -64,7 +64,7 @@ export default function shaveText(text, options) {
   const textLength = text.length;
 
   switch(opts.mode) {
-    case 'chars':
+    case 'characters':
       if(!opts.preserveWords) {
         baseText = text.substring(0, opts.limit);
       } else {

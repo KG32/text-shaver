@@ -29,11 +29,11 @@ String
 
 **options:**
 * mode (String)  
-chars (default), words, sentences
+characters (default), words, sentences
 * preserveWords (Bool)  
-in chars mode, prevent words from splitting
+in characters mode, prevent words from splitting
 * limit (Number)  
-chars, words or sentences limit
+characters, words or sentences limit
 * suffix (String)  
 trailing characters
 
