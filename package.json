@@ -1,5 +1,5 @@
 {
-  "name": "trim-text",
+  "name": "text-shaver",
   "version": "1.0.0",
   "description": "A customizable module for trimming text using characters/words/sentences limits and adding trailing characters.",
   "main": "lib/index.js",
@@ -18,6 +18,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/KG32/trim-text"
+    "url": "https://github.com/KG32/text-shaver"
   }
 }

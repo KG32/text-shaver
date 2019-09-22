@@ -1,4 +1,4 @@
-# trim-text
+### text-shaver
 
 A customizable module for trimming text using characters/words/sentences limits and adding trailing characters.
 
@@ -7,21 +7,21 @@ A customizable module for trimming text using characters/words/sentences limits 
 ### Installing
 
 ```
-npm install --save trim-text
+npm install --save text-shaver
 ```
 
 ### Usage
 
 ```
-const trimText = require('trim-text');
+const textShaver = require('textShaver');
 
 // or
 
-import { trimText } from 'trim-text';
+import { textShaver } from 'text-shaver';
 ```
 
 ```
-trimText(text, options);
+textShaver(text, options);
 ```
 
 **text**  
@@ -44,7 +44,7 @@ trailing characters
 ```
 const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque suscipit nec ipsum in dictum."
 
-const trimmedText = trimText(text, {mode: 'words', limit: 3, suffix: '(..)'}); // 'Lorem ipsum dolor(...)'
+const shortText = textShaver(text, {mode: 'words', limit: 3, suffix: '(..)'}); // 'Lorem ipsum dolor(...)'
 ```
 
 

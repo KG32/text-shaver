@@ -1,5 +1,5 @@
-import trimText from "./trimText";
+import shaveText from "./shaveText";
 
-exports.trimText = function(text, options) {
-  return trimText(text, options);
+exports.textShaver = function(text, options) {
+  return shaveText(text, options);
 };

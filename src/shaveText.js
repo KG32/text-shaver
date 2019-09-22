@@ -8,7 +8,7 @@ const defaultOptions = {
   suffix: '(..)'
 };
 
-export default function trimText(text, options) {
+export default function shaveText(text, options) {
   let opts = {};
   const errs = [];
   if(options && typeof options === 'object' && Object.prototype.toString.call(options) === '[object Object]') {
