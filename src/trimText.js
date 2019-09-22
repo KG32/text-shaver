@@ -1,5 +1,4 @@
 const modes = ['chars', 'words', 'sentences'];
-const optionsKeys = ['mode', 'preserveWords', 'limit', 'suffix'];
 const defaultOptions = {
   mode: modes[0],
   preserveWords: false,
