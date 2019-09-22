@@ -17,5 +17,9 @@
   },
   "dependencies": {
     "watch": "^1.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KG32/trim-text"
   }
 }
