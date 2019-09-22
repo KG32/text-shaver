@@ -1,5 +1,5 @@
-const trimText = require('./lib/trimText');
+import trimText from "./trimText";
 
 exports.trimText = function(text, options) {
-  console.log('trim text');
+  return trimText(text, options);
 };
