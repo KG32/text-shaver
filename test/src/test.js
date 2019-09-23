@@ -42,7 +42,6 @@ describe('Pitfalls', function() {
       for(let j=0; j<optionsCases.length; j++) {
         const options = optionsCases[j];
         options.mode = modes[i];
-        console.log(options);
         const res = textShaver(longText, options);
         assert(typeof res === 'string');
       }

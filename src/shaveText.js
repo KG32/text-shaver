@@ -93,7 +93,6 @@ export default function shaveText(text, options) {
       }
       break;
     default:
-
   }
 
   return baseText.length < textLength ?`${baseText}${opts.suffix}` : baseText;

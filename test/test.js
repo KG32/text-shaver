@@ -43,7 +43,6 @@ var longText = "Nam libero tempore. Cum soluta nobis est eligendi optio cumque n
       for (var j = 0; j < optionsCases.length; j++) {
         var options = optionsCases[j];
         options.mode = modes[i];
-        console.log(options);
         var res = (0, _index.textShaver)(longText, options);
         assert(typeof res === 'string');
       }
