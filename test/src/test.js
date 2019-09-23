@@ -20,8 +20,8 @@ describe('Strings', function() {
   });
   it('should shorten by sentences', function() {
     const text = "Nam libero tempore. Cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus. Omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
-    const target = "Nam libero tempore. Cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.(...)";
-    const res = textShaver(text, {mode: 'sentences', limit: 2});
+    const target = "Nam libero tempore. Cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.(..)";
+    const res = textShaver(text, {mode: 'sentences', limit: 2, suffix: '(..)'});
     assert.strictEqual(res, target);
   });
 });

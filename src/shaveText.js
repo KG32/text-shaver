@@ -9,6 +9,7 @@ const defaultOptions = {
 };
 
 export default function shaveText(text, options) {
+  if(text === '') return text;
   const errs = [];
   if(typeof text !== 'string') {
     console.error('Invalid text type');
@@ -95,11 +96,14 @@ export default function shaveText(text, options) {
       break;
     case 'sentences':
       let sentencesArr = text.split('.');
-      let sentencesCount = sentencesArr.length;
+      const sentencesCount = sentencesArr.length;
       if(sentencesCount > opts.limit) {
         sentencesArr.length = opts.limit;
       }
       baseText = sentencesArr.join('.');
+      if(sentencesCount>1) {
+        baseText = baseText + '.';
+      }
       break;
     default:
       errs.push({msg: 'Unknown mode.'});

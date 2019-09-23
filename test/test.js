@@ -22,8 +22,8 @@ var modes = ['characters', 'words', 'sentences'];
   });
   (0, _mocha.it)('should shorten by sentences', function () {
     var text = "Nam libero tempore. Cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus. Omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.";
-    var target = "Nam libero tempore. Cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.(...)";
-    var res = (0, _index.textShaver)(text, { mode: 'sentences', limit: 2 });
+    var target = "Nam libero tempore. Cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.(..)";
+    var res = (0, _index.textShaver)(text, { mode: 'sentences', limit: 2, suffix: '(..)' });
     assert.strictEqual(res, target);
   });
 });
