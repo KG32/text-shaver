@@ -4,9 +4,11 @@
   "description": "A customizable module for trimming text using characters/words/sentences limits and adding trailing characters.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "build": "babel ./src -d ./lib",
+    "buildTests": "babel ./test/src -d ./test && mocha",
     "watch": "watch 'npm run build' src",
+    "watchTests": "watch 'npm run buildTests' test/src",
     "prepublish": "npm run build"
   },
   "author": "KG32",
@@ -14,6 +16,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "mocha": "^6.2.0",
     "watch": "^1.0.2"
   },
   "repository": {
