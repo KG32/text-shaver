@@ -10,9 +10,7 @@ const defaultOptions = {
 
 export default function shaveText(text, options) {
   if(text === '') return text;
-  const errs = [];
   if(typeof text !== 'string') {
-    console.error('Invalid text type');
     return '';
   }
 
@@ -24,37 +22,26 @@ export default function shaveText(text, options) {
         case 'mode':
           if(modes.indexOf(val)>=0) {
             opts['mode'] = val;
-          } else {
-            errs.push({msg: 'Unknown mode'});
           }
           break;
         case 'preserveWords':
           if(typeof val === 'boolean') {
             opts['preserveWords'] = val;
-          } else {
-            errs.push({msg: 'Unknown preserveWords'});
           }
           break;
         case 'limit':
           if(typeof val === 'number') {
             if(val > 0) {
               opts['limit'] = val;
-            } else {
-              errs.push('Limit must be greater than 0');
             }
-          } else {
-            errs.push({msg: 'Unknown limit'})
           }
           break;
         case 'suffix':
           if(typeof val === 'string') {
             opts['suffix'] = val;
-          } else {
-            errs.push('Unknown suffix type');
           }
           break;
         default:
-          errs.push({msg: 'Unknown option key'});
       }
     }
   } else {
@@ -106,11 +93,7 @@ export default function shaveText(text, options) {
       }
       break;
     default:
-      errs.push({msg: 'Unknown mode.'});
-  }
 
-  for(let i=0; i<errs.length; i++) {
-    console.warn(errs[i].msg);
   }
 
   return baseText.length < textLength ?`${baseText}${opts.suffix}` : baseText;

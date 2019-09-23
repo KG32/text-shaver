@@ -6,6 +6,7 @@ var _index = require('../lib/index.js');
 
 var assert = require('assert');
 var modes = ['characters', 'words', 'sentences'];
+var longText = "Nam libero tempore. Cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus. Omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.";
 
 (0, _mocha.describe)('Strings', function () {
   (0, _mocha.it)('should shorten strings by chars', function () {
@@ -36,9 +37,16 @@ var modes = ['characters', 'words', 'sentences'];
       assert.strictEqual(res, '');
     }
   });
-  // it('should deal with irrational options for all modes', function() {
-  //   for(let i=0; i<modes.length; i++) {
-  //
-  //   }
-  // });
+  (0, _mocha.it)('should deal with irrational options for all modes', function () {
+    var optionsCases = [{ limit: 0 }, { limit: -32 }];
+    for (var i = 0; i < modes.length; i++) {
+      for (var j = 0; j < optionsCases.length; j++) {
+        var options = optionsCases[j];
+        options.mode = modes[i];
+        console.log(options);
+        var res = (0, _index.textShaver)(longText, options);
+        assert(typeof res === 'string');
+      }
+    }
+  });
 });

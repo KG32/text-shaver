@@ -3,6 +3,8 @@ import { describe, it } from 'mocha';
 import { textShaver } from '../lib/index.js';
 const assert = require('assert');
 const modes = ['characters', 'words', 'sentences'];
+const longText = "Nam libero tempore. Cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus. Omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.";
+
 
 
 describe('Strings', function() {
@@ -19,7 +21,7 @@ describe('Strings', function() {
     assert.strictEqual(res, 'At vero eos(...)');
   });
   it('should shorten by sentences', function() {
-    const text = "Nam libero tempore. Cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus. Omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+    const text = "Nam libero tempore. Cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus. Omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.";
     const target = "Nam libero tempore. Cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.(..)";
     const res = textShaver(text, {mode: 'sentences', limit: 2, suffix: '(..)'});
     assert.strictEqual(res, target);
@@ -34,9 +36,16 @@ describe('Pitfalls', function() {
       assert.strictEqual(res, '');
     }
   });
-  // it('should deal with irrational options for all modes', function() {
-  //   for(let i=0; i<modes.length; i++) {
-  //
-  //   }
-  // });
+  it('should deal with irrational options for all modes', function() {
+    const optionsCases = [{limit: 0}, {limit: -32}];
+    for(let i=0; i<modes.length; i++) {
+      for(let j=0; j<optionsCases.length; j++) {
+        const options = optionsCases[j];
+        options.mode = modes[i];
+        console.log(options);
+        const res = textShaver(longText, options);
+        assert(typeof res === 'string');
+      }
+    }
+  });
 });
