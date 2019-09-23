@@ -9,8 +9,13 @@ const defaultOptions = {
 };
 
 export default function shaveText(text, options) {
-  let opts = {};
   const errs = [];
+  if(typeof text !== 'string') {
+    console.error('Invalid text type');
+    return '';
+  }
+
+  let opts = {};
   if(options && typeof options === 'object' && Object.prototype.toString.call(options) === '[object Object]') {
     for(let key in options) {
       const val = options[key];
@@ -101,7 +106,7 @@ export default function shaveText(text, options) {
   }
 
   for(let i=0; i<errs.length; i++) {
-    console.warn(errs[i]);
+    console.warn(errs[i].msg);
   }
 
   return baseText.length < textLength ?`${baseText}${opts.suffix}` : baseText;
