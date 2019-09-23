@@ -19,5 +19,14 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/KG32/text-shaver"
-  }
+  },
+  "keywords": [
+    "text",
+    "trim",
+    "short",
+    "shave",
+    "shorten",
+    "trimmed",
+    "trim text"
+  ]
 }
