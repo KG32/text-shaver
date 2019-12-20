@@ -13,7 +13,7 @@ npm install --save text-shaver
 ### Usage
 
 ```
-const textShaver = require('textShaver');
+const { textShaver } = require('textShaver');
 
 // or
 
